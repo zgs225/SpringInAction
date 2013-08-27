@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   	   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!-- Wire beans through constructor -->
+	<bean id="duke"
+	      class="me.zgs225.springinaction.springidol.Juggler">
+		<constructor-arg value="15" />
+    </bean>
+    
+    <bean id="sonnet29"
+          class="me.zgs225.springinaction.springidol.Sonnet29" />
+          
+    <bean id="poeticJuggler"
+    	  class="me.zgs225.springinaction.springidol.PoeticJuggler">
+    	<constructor-arg value="15" />
+    	<constructor-arg ref="sonnet29" />
+    </bean>
+    
+    <!-- Wire beans through factory method -->
+    <bean id="theStage"
+     	  class="me.zgs225.springinaction.springidol.Stage"
+     	  factory-method="getInstance" />
+     	  
+    <!-- The scope property and its value 'prototype'  -->
+    <!-- to force Spring to produce a new bean instance each time on is needed-->
+    <bean id="ticket"
+    	  class="me.zgs225.springinaction.springidol.Ticket" scope="prototype" />
+    
+    <bean id="auditorium"
+          class="me.zgs225.springinaction.springidol.Auditorium"
+          init-method="turnOnLights"
+          destroy-method="turnOffLights" />
+          
+    <bean id="kenny"
+          class="me.zgs225.springinaction.springidol.Instrumentalist" />
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
