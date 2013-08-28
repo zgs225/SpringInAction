@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
 	   	   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<!-- Wire beans through constructor -->
@@ -34,7 +35,26 @@
           destroy-method="turnOffLights" />
           
     <bean id="kenny"
-          class="me.zgs225.springinaction.springidol.Instrumentalist" />
+          class="me.zgs225.springinaction.springidol.Instrumentalist" 
+          p:song = "Jingle Bells"
+          p:instrument-ref = "piano" />
+    
+    <bean id="saxophone"
+    	  class="me.zgs225.springinaction.springidol.Saxophone" />
+    	  
+    <bean id="piano"
+          class="me.zgs225.springinaction.springidol.Piano" />
+          
+    <bean id="hank"
+     	  class="me.zgs225.springinaction.springidol.OneManBand">
+   		<property name="instruments">
+   			<map>
+   				<entry key="GUITAR" value-ref="guitar" />
+   				<entry key="CYMBAL" value-ref="cymbal" />
+   				<entry key="HARMONICA" value-ref="harmonica" />
+   			</map>
+   		</property>
+  	</bean>
 </beans>
 
 
