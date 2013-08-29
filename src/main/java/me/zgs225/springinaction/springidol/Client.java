@@ -7,7 +7,7 @@ public class Client {
 	
 	public static void main(String[] args) throws PerformanceException {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
-		Performer performer = (Performer) ctx.getBean("kenny");
+		Performer performer = (Performer) ctx.getBean("poeticJuggler");
 		performer.perform();
 	}
 }

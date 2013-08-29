@@ -16,7 +16,7 @@
     <bean id="poeticJuggler"
     	  class="me.zgs225.springinaction.springidol.PoeticJuggler">
     	<constructor-arg value="15" />
-    	<constructor-arg ref="sonnet29" />
+    	<constructor-arg value="#{ sonnet29 }" />
     </bean>
     
     <!-- Wire beans through factory method -->
@@ -44,7 +44,8 @@
     	  
     <bean id="piano"
           class="me.zgs225.springinaction.springidol.Piano" />
-          
+
+	<!--           
     <bean id="hank"
      	  class="me.zgs225.springinaction.springidol.OneManBand">
    		<property name="instruments">
@@ -55,6 +56,7 @@
    			</map>
    		</property>
   	</bean>
+  	 -->
 </beans>
 
 
