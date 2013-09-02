@@ -1,5 +1,8 @@
 package me.zgs225.springinaction.springidol;
 
+import org.springframework.stereotype.Component;
+
+@Component("eddie")
 public class Instrumentalist implements Performer {
 
 	public Instrumentalist() {}
