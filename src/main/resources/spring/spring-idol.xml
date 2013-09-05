@@ -60,7 +60,10 @@
 		  class="me.zgs225.springinaction.springidol.Audience"/>
 		  
 	<!-- AOP configuration -->
+	<aop:aspectj-autoproxy/>	
+	
 	<aop:config>
+	<!-- 
 		<aop:aspect ref="audience">
 			<aop:pointcut id="performance"
 						  expression="execution(* me.zgs225.springinaction.springidol.Performer.perform(..))"/>
@@ -74,6 +77,22 @@
 			<aop:pointcut id="performance2"
 						  expression="execution(* me.zgs225.springinaction.springidol.Performer.perform(..))"/>
 			<aop:around method="watchPerformance()"   pointcut-ref="performance2"/>
+		</aop:aspect>
+	-->
+		<aop:aspect ref="magician">
+			<aop:pointcut id="thinking"
+						  expression="execution(* me.zgs225.springinaction.springidol.Thinker.thinkOfSomething(String))
+						              and args(thoughts)" />
+			<aop:before method="interceptThoughts"
+			            pointcut-ref="magician"
+			            arg-names="thoughts"/>
+		</aop:aspect>
+		
+		<aop:aspect>
+			<aop:declare-parents types-matching="me.zgs225.springinaction.springidol.Performer+"
+							     implement-interface="me.zgs225.springinaction.springidol.Contestant"
+							     default-impl="me.zgs225.springinaction.springidol.GraciousContestant"/>
+							     
 		</aop:aspect>
 	</aop:config>
 	
